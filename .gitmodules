@@ -1,0 +1,8 @@
+[submodule "Native/iOS-SDK"]
+	path = Native/iOS-SDK
+	url = https://github.com/Estimote/iOS-SDK.git
+	branch = master
+[submodule "Native/iOS-Indoor-SDK"]
+	path = Native/iOS-Indoor-SDK
+	url = https://github.com/Estimote/iOS-Indoor-SDK.git
+	branch = master
