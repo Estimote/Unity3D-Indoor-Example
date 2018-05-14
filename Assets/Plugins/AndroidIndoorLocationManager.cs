@@ -63,6 +63,8 @@ class AndroidIndoorLocationManager : IndoorLocationManager
 
 			indoorManager.Call ("setOnPositionUpdateListener", positionListener);
 			indoorManager.Call ("startPositioning");
+
+			this.positionListener.IndoorManager = indoorManager; // retain the reference
 		}
 
 		public void failure (AndroidJavaObject estimoteCloudException)
@@ -73,6 +75,8 @@ class AndroidIndoorLocationManager : IndoorLocationManager
 
 	class OnPositionUpdateListener : AndroidJavaProxy
 	{
+		public AndroidJavaObject IndoorManager { get; set; }
+
 		public bool IsInsideLocation { get; set; }
 
 		public double LastKnownX { get; set; }
