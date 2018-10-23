@@ -69,7 +69,9 @@ class AndroidIndoorLocationManager : IndoorLocationManager
 
 		public void failure (AndroidJavaObject estimoteCloudException)
 		{
-			Debug.LogError ("CloudManagerCallback failure: " + estimoteCloudException);
+			int errorCode = estimoteCloudException.Call<int> ("getErrorCode");
+			string body = estimoteCloudException.Call<string> ("getBody");
+			Debug.LogError ("CloudManagerCallback failure, errorCode = " + errorCode + ", body = " + body);
 		}
 	}
 
