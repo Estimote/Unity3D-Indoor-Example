@@ -10,10 +10,10 @@ class AndroidIndoorLocationManager : IndoorLocationManager
 
 		AndroidJNIHelper.debug = true;
 
-		AndroidJavaClass unityPlayer = new AndroidJavaClass ("com.unity3d.player.UnityPlayer"); 
+		AndroidJavaClass unityPlayer = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject> ("currentActivity");
 
-		AndroidJavaObject cloudCredentials = new AndroidJavaObject ("com.estimote.cloud_plugin.common.EstimoteCloudCredentials", appId, appToken);
+		AndroidJavaObject cloudCredentials = new AndroidJavaObject ("com.estimote.indoorsdk.EstimoteCloudCredentials", appId, appToken);
 
 		AndroidJavaObject cloudManagerFactory = new AndroidJavaObject ("com.estimote.indoorsdk_module.cloud.IndoorCloudManagerFactory");
 		AndroidJavaObject cloudManager = cloudManagerFactory.Call<AndroidJavaObject> ("create", activity, cloudCredentials);
